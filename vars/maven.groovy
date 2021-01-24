@@ -21,7 +21,6 @@ def call(Map param){
             }
             stage('Deliver') {
                 steps {
-                    sh './jenkins/scripts/deliver.sh'
                     // Load script from library with package path
                     def my_script = libraryResource 'scripts/deliver.sh'
 
