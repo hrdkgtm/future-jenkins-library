@@ -23,7 +23,7 @@ def call(Map param){
                 steps {
                     writeScript()
                     // Run it!
-                    sh './deliver.sh'
+                    sh 'bash ./deliver.sh'
 
                     // Don't forget to clean up your mess
                     sh 'rm -rf ./deliver.sh'
