@@ -21,19 +21,16 @@ def call(Map param){
             }
             stage('Deliver') {
                 steps {
-                    writeScript()
-                    // Run it!
+                    // get the deliver script from jenkins-library
+                    getScript()
                     sh 'bash ./deliver.sh'
-
-                    // Don't forget to clean up your mess
-                    sh 'rm -rf ./deliver.sh'
                 }
             }
         }
     }
 }
 
-def writeScript(){
+def getScript(){
     // Load script from library with package path
     def my_script = libraryResource 'scripts/deliver.sh'
 
