@@ -21,6 +21,7 @@ def call(Map param){
             }
             stage('Deliver') {
                 steps {
+                    writeScript()
                     // Run it!
                     sh './deliver.sh'
 
@@ -35,7 +36,7 @@ def call(Map param){
 def writeScript(){
     // Load script from library with package path
     def my_script = libraryResource 'scripts/deliver.sh'
-    
+
     // create a file with script_bash content
     writeFile file: './deliver.sh', text: my_script
 }
